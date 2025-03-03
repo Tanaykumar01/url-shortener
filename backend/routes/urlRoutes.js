@@ -7,7 +7,7 @@ router.get("/test" , (req, res) => {
   res.send("API is working");
 });
 router.post("/shorten", limiter, shortenUrl);
-router.get("/:shorttext",limiter , redirectUrl);
+router.get("/:shorttext" , redirectUrl);
 router.get("/stats/:shorttext", getStats);
 
 export default router;
