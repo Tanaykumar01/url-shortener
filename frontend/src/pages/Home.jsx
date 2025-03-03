@@ -7,11 +7,13 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
 
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   const handleShorten = async () => {
     if (!url) return;
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:8080/shorten", {
+      const res = await axios.post(`${API_BASE_URL}/shorten`, {
         originalUrl: url,
       });
       setShortUrl(res.data.shortUrl);

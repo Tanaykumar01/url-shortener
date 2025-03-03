@@ -8,10 +8,11 @@ const Stats = () => {
   const [darkMode, setDarkMode] = useState(
     document.documentElement.classList.contains("dark")
   );
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/stats/${shortCode}`)
+      .get(`${API_BASE_URL}/stats/${shortCode}`)
       .then((res) => setStats(res.data))
       .catch((err) => console.error(err));
   }, [shortCode]);
