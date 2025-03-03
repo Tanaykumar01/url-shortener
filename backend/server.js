@@ -10,7 +10,10 @@ const app = express();
 
 
 app.use(json());
-app.use(cors());
+app.use(cors({
+    origin: [process.env.CLIENT_URL , "https://pk5xbqm4-5173.inc1.devtunnels.ms/"],
+    credentials: true
+}));
 app.use(helmet());
 
 // import routes
