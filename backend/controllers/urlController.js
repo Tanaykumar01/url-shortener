@@ -33,7 +33,7 @@ export async function redirectUrl(req, res) {
     await url.save();
     res.redirect(url.originalUrl);
   } catch (error) {
-    res.status(500).json({ error: "Server error" });
+    res.status(404).json({ error: "Site Not Found" });
   }
 }
 
